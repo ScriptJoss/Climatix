@@ -1,33 +1,23 @@
 from datetime import datetime
 
-# Mensajes iniciales
-print("Conoce que se ven tus actos, escribe un hábito que tengas")
-print("Utiliza palabras clave de las secciones indicadas (puedes agregar detalles):")
-print("1. usé bicicleta, caminé calles, ahorré energía, utilicé paneles solares, evité combustibles")
-print("1.2 quemé carbón, petróleo, gasté gas natural, contaminé aire")
-print("2. cuidé bosques, planté árboles, protegí la Amazonía, conservé suelos, preservé agua")
-print("2.1 talé bosques, corté árboles, destruí Amazonía, liberé CO₂, provoqué sequías")
-print("3. cultivé orgánico, reduje fertilizantes, protegí suelos, sembré biodiversidad, ahorré agua")
-print("3.1 usé fertilizantes, crié vacas, produje metano, contaminé suelos, degradé tierras")
-print("4. fabriqué ecológico, reutilicé materiales, usé transporte público, manejé eléctrico, reduje CO₂")
-print("4.1 construí cemento, fabriqué acero, manejé autos, volé aviones, navegué barcos, emití CO₂")
-print("5. limpié playas, recogí basura, reciclé desechos, cuidé costas, protegí corales, preservé océanos")
-print("5.1 boté basura, arrojé residuos, deseché plásticos, contaminó océanos, dañé corales, afecté plancton")
-print("6. defendí selva, cuidé ríos, apoyé minería responsable, protegí comunidades, conservé ecosistemas")
-print("6.1 extraje oro, talé selva, contaminé ríos, vertí tóxicos, destruí ecosistemas")
-print("En caso de que poseas una empresa, usa:")
-print("1.2 usó energías renovables, invirtió en paneles solares, redujo combustibles fósiles, recicló energía, fomentó transporte limpio")
-print("1.3 quemó carbón, utilizó petróleo, gastó gas natural, contaminó aire, intensificó el efecto invernadero")
-print("2.2 reforestó áreas, cuidó bosques, plantó árboles, protegí la Amazonía, conservó suelos")
-print("2.3 taló bosques, cortó árboles, destruyó selva, liberé CO₂, provoqué sequías")
-print("3.2 cultivó orgánico, reduje fertilizantes, implementó prácticas sostenibles, protegió suelos, ahorré agua")
-print("3.3 usó fertilizantes químicos, crió ganado intensivo, produje metano, contaminó suelos, degradé tierras")
-print("4.2 fabricó con materiales reciclados, redujo emisiones, modernizó maquinaria limpia, usó transporte eléctrico, optimizó procesos")
-print("4.3 produjo cemento, produjo acero, usó autos contaminantes, operó aviones, operó barcos, emitió CO₂")
-print("5.2 limpió playas, recogió basura, recicló desechos, cuidé costas, protegí corales, preservó ecosistemas marinos")
-print("5.3 botó basura, arrojó residuos, deseché plásticos, contaminó mares, acidificó aguas, dañó corales, afectó el plancton")
-print("6.2 respetó regulaciones, practicó minería responsable, cuidé ríos, protegí comunidades, conservé ecosistemas")
-print("6.3 extrajo oro ilegalmente, talé selva, contaminé ríos, vertió químicos tóxicos, destruyó hábitats")
+print("¡Bienvenido! Aquí puedes registrar tus hábitos ambientales.")
+print("Escribe un hábito que tengas y utiliza palabras clave de las secciones sugeridas (puedes agregar detalles):")
+print("Ejemplos de hábitos positivos:")
+print("  - Usé bicicleta, caminé, ahorré energía, utilicé paneles solares, evité combustibles")
+print("  - Cuidé bosques, planté árboles, protegí la Amazonía, conservé suelos, preservé agua")
+print("  - Cultivé orgánico, reduje fertilizantes, protegí suelos, sembré biodiversidad, ahorré agua")
+print("  - Fabriqué ecológico, reutilicé materiales, usé transporte público, manejé eléctrico, reduje CO₂")
+print("  - Limpié playas, recogí basura, reciclé desechos, cuidé costas, protegí corales, preservé océanos")
+print("  - Defendí selva, cuidé ríos, apoyé minería responsable, protegí comunidades, conservé ecosistemas")
+print("Ejemplos de hábitos negativos:")
+print("  - Quemé carbón, petróleo, gasté gas natural, contaminé aire")
+print("  - Talé bosques, corté árboles, destruí Amazonía, liberé CO₂, provoqué sequías")
+print("  - Usé fertilizantes, crié vacas, produje metano, contaminé suelos, degradé tierras")
+print("  - Construí cemento, fabriqué acero, manejé autos, volé aviones, navegué barcos, emití CO₂")
+print("  - Boté basura, arrojé residuos, deseché plásticos, contaminé océanos, dañé corales, afecté plancton")
+print("  - Extraje oro, talé selva, contaminé ríos, vertí tóxicos, destruí ecosistemas")
+print("Si tienes una empresa, también puedes registrar hábitos empresariales usando las palabras clave sugeridas.")
+
 def habitos():
     # Definición de secciones positivas (sin cambios)
     secciones_positivas = {
@@ -206,13 +196,13 @@ def habitos():
     # Manejo de entrada con protección contra EOFError
     while True:
         try:
-            HABITO = input("Escribe un hábito: ")
+            HABITO = input("Escribe tu hábito ambiental: ")
             if HABITO.strip() == "":
-                print("Error: La entrada está vacía. Por favor, escribe un hábito.")
+                print("La entrada está vacía. Por favor, escribe un hábito.")
                 continue
             break
         except EOFError:
-            print("Error: No se recibió entrada. Por favor, escribe un hábito e intenta de nuevo.")
+            print("No se recibió entrada. Por favor, intenta de nuevo.")
 
     # Normalización
     def remove_accents(text):
@@ -227,14 +217,11 @@ def habitos():
 
     habito_lower = HABITO.lower()
     habito_normalized = remove_accents(habito_lower).split()
-    print("Entrada normalizada:", habito_normalized)  # Depuración
 
-    # Función para verificar si alguna palabra de la frase está en la entrada
     def any_word_present(phrase, input_words):
         phrase_words = remove_accents(phrase.lower()).split()
         return any(word in input_words for word in phrase_words)
 
-    # Verificar secciones negativas primero
     seccion_detectada = None
     es_negativo = False
     for seccion, datos in secciones_negativas.items():
@@ -242,35 +229,32 @@ def habitos():
             if any_word_present(palabra, habito_normalized):
                 seccion_detectada = seccion
                 es_negativo = True
-                print(f"Coincidencia encontrada con '{palabra}' en sección negativa {seccion}")
                 break
         if seccion_detectada:
             break
 
-    # Si no es negativo, verificar secciones positivas
     if not seccion_detectada:
         for seccion, datos in secciones_positivas.items():
             for palabra in datos["palabras"]:
                 if any_word_present(palabra, habito_normalized):
                     seccion_detectada = seccion
                     es_negativo = False
-                    print(f"Coincidencia encontrada con '{palabra}' en sección positiva {seccion}")
                     break
             if seccion_detectada:
                 break
 
-    # Imprimir resultado y reflexión
     if seccion_detectada:
         print(f"Hábito registrado el: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         if es_negativo:
-            print("Eres una persona terrible, tú, en conjunto con millones de nefastas personas, están matando al planeta. Que si, en este momento, todos ustedes desaparecieran, muy pocos lo recordarían. Y, además, les recuerdo que, al ser tan nefastas personas, están arruinando la vida a sus hijos y nietos. Cuando a ellos les toque la crisis mundial, va a ser su culpa. Igual, les vamos a dejar un tip, a ver, si quieren cambiar un poco")
+            print("Tu hábito tiene un impacto negativo en el medio ambiente. Reflexiona sobre cómo puedes mejorar y contribuir a un planeta más sano.")
             print(f"Sección detectada: {seccion_detectada}")
-            print(f"Reflexión: {secciones_negativas[seccion_detectada]['reflexion']}")
+            print(f"Recomendación: {secciones_negativas[seccion_detectada]['reflexion']}")
         else:
-            print("Eres una persona increíble, sabes, Sí más gente como tú estuvieran en el planeta, el planeta estaría mucho mejor, sigue así, no te desanimes, algún día tus esfuerzos darán frutos.")
+            print("¡Excelente hábito! Tus acciones ayudan a cuidar el planeta. Sigue así y motiva a otros a hacer lo mismo.")
             print(f"Sección detectada: {seccion_detectada}")
-            print(f"Reflexión: {secciones_positivas[seccion_detectada]['reflexion']}")
+            print(f"Recomendación: {secciones_positivas[seccion_detectada]['reflexion']}")
     else:
-        print("Hábito no clasificado. Usa palabras clave de las secciones indicadas.")
+        print("No se pudo clasificar tu hábito. Usa palabras clave de las secciones sugeridas para obtener una recomendación.")
+
 
 habitos()
