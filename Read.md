@@ -5,7 +5,8 @@ settings = {
     "token": "token-bot",
     "prefix": "!", 
     "API_KEY": "api-key" 
-}```
+}
+```
 
 *El token o la api-key se las puedo pasar al priv si me lo piden...*
 
